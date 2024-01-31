@@ -56,7 +56,9 @@ def signup(request):
        
         to_list = [emailId]
       
-        EmailMessage(subject,message,from_email,to_list,fail_silently=True)
+        email = EmailMessage(subject,message,from_email,to_list)
+        email.fail_silently = False
+        email.send()
         messages.success(request,"OTP sent on your Email!")
         otpauth.objects.create(user_id=user_obj,signup_otp=signup_otp)
        
