@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Verify OTP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/verifyotp.css' %}">
+
+
+</head>
+<body>
+    <section class="container mb-6">
+        {% if messages %}
+            {% for message in messages %}
+               <script>alert("{{ message }}");</script> 
+            {% endfor %}
+        {% endif %}
+        <form class="register_form container-lg col-lg-4 col-md-8 col-12" method="POST">
+            <img class="logo" src="{% static 'images/wallet.png' %}" alt="User Wallet Logo">
+            {% csrf_token %}
+            <header id ="textboxid">Login into your account</header><br>
+            <input class="form-control" id ="otp" type="text"  name="otp" placeholder="Enter OTP" ><br>
+            <button class="btn btn-primary btn-login" id="button" type="submit">Verify</button><br>
+        </form>
+    </section>
+</body>
+</html>

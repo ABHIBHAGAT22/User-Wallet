@@ -1,0 +1,49 @@
+{% extends "dash.html" %}
+{% load static %}
+{% block content %}
+
+<body>
+        <header class="textboxid"> Transcation History</header><br>
+         <table class="table">
+    <tr style="background-color:#ac99a0fa">
+        <th>Payment Id</th>
+        <th>User Id</th>
+        <th>Amount</th>
+        <th>Email</th>
+        <th>Transaction date</th>
+        <th>Transaction Type</th>
+    </tr>
+    {% for i in t %}
+        {% if i.transcation_status == "1" %}
+            <tr style="background-color:#dbe0de"> 
+                <td>{{i.id}}</td>
+                <td>{{i.user_id}}</td>
+                <td>{{i.Amount}} ₹</td>
+                <td>{{i.sender_emailId}}</td>
+                <td>{{i.payment_at}}</td>
+                <td>Added</td>
+            </tr>
+        {% elif i.transcation_status == "-1" %}
+            <tr style="background-color:#f1a794">
+                <td>{{i.id}}</td>
+                <td>{{i.user_id}}</td>
+                <td>{{i.Amount}} ₹</td>
+                <td>{{i.receiver_emailId}}</td>
+                <td>{{i.payment_at}}</td>
+                <td>Debited</td>
+            </tr>
+        {% else %}
+            <tr style="background-color:#b2eed0"> 
+                <td>{{i.id}}</td>
+                <td>{{i.user_id}}</td>
+                <td>{{i.Amount}} ₹</td>
+                <td>{{i.sender_emailId}}</td>
+                <td>{{i.payment_at}}</td>
+                <td>Credited</td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+
+</body>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <title>Register</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('loginLink').href = window.location.origin + '/login/';
+       
+      });
+      </script>
+   
+</head>
+<body>
+    <section class="container mb-6">
+        
+        <form class="register_form container-lg col-lg-4 col-md-8 col-12" method="POST">
+            <img class="logo" src="{% static 'images/wallet.png' %}" alt="User Wallet Logo">
+            {% csrf_token %}
+            <input class="form-control" id ="username" type="text"  pattern="[a-zA-Z'-'\s]*" name="username" placeholder="Enter your username" required><br>
+            <input class="form-control" id ="emailId" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="emailId" placeholder="Enter your Email Address" required/><br>        
+            <button class="btn btn-primary btn-login" id="button" type="submit">Register</button><br>
+
+            <div class="login-link">
+                <p>Already have a account? <a href="#" id="loginLink">Login here</a></p>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

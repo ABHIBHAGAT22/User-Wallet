@@ -1,0 +1,27 @@
+body {
+    background-color: #ffffff;
+}
+
+.container {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.logo {
+    max-width: 320px;
+}
+
+.btn-login {
+    font-size: 20px;
+    width: 365px;
+    height: 45px;
+    text-align: center;
+    
+}
+ h2{
+  margin-bottom: 30px;
+ }
+ .btn-primary{
+  background-color:#3886CE;
+ }
+ 

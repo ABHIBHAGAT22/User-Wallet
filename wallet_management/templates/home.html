@@ -1,0 +1,68 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <title>Dashboard</title> 
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      document.getElementById('logoutLink').href = window.location.origin + '/logout/';
+      document.getElementById('sendmoneyLink').href = window.location.origin + '/sendmoney/';
+      document.getElementById('addmoneyLink').href = window.location.origin + '/addmoney/';
+      document.getElementById('historyLink').href = window.location.origin + '/history/';
+
+    });
+    </script>  
+    </head>
+
+   <body>
+
+    <div class="nav-bar">
+        <img class="logo1" src="{% static 'images/wallet.png' %}" alt="User Wallet Logo">
+        <p>Welcome to the User Wallet</p>
+        <a href="#" id="logoutLink"><img class="logout" src="{% static 'images/logout.png' %}" alt="Logout"> </a>
+    </div>
+
+    <div class="sidebar">
+    <img class="user" src="{% static 'images/user.png' %}" alt="User Wallet Logo"><br>
+    <p>{{name}}</p>
+    <p>Account Balance : {{balance}} ₹</p>
+            
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <div class="card-item">
+                <div>
+                    
+                </div>
+                <div class="content">
+        
+                    <a href="#" id="sendmoneyLink"><img class="card-img" src="{% static 'images/send_money.png' %}" alt=""></a>
+                </div>
+            </div>
+            <div class="card-item">
+                <div class="content">
+                    <a href="#" id="addmoneyLink"><img class="card-img" src="{% static 'images/add_money.png' %}" alt=""></a><br>
+        
+                    </div>
+            </div>
+            <div class="card-item">
+                <div class="content">
+                    <a href="#" id="historyLink"><img class="card-img" src="{% static 'images/history.png' %}" alt=""> </a><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="footer">
+    &copy; <span id="currentYear"></span> Your Website Name. All rights reserved.
+</div>
+      
+</body>
+</html>

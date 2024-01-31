@@ -1,0 +1,29 @@
+{% extends "dash.html" %}
+{% block content %}   
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+    <title>Add Money</title>
+</head>
+<body>
+    <section class="container mb-6">
+        {% if messages %}
+        {% for message in messages %}
+           <script>alert("{{ message }}");</script> 
+        {% endfor %}
+        {% endif %}
+        <form class="register_form container-lg col-lg-4" method="POST">
+            <img class="logo" src="{% static 'images/wallet.png' %}" alt="User Wallet Logo">
+            {% csrf_token %}
+            <header id ="paymentnow" >Payment Now</header><br>
+      
+            <input class="form-control" id ="Amount" name="Amount" type="text" placeholder="Enter Amount" required><br>
+            <button class="btn btn-primary btn-login" id="button" type="submit">Add Money</button><br>
+
+        </form>
+    </section>
+
+</body>
+
+
+{% endblock %}
