@@ -20,7 +20,7 @@ def dash(request):
         if request.session.get('loggedin',False)==False:
             messages.success(request,"You need to sign in first!")
             return redirect('/login')
-        messages.success(request,"Welcome to dashboard!")
+        # messages.success(request,"Welcome to dashboard!")
         user_id=request.session['user_id']
         user_obj=userapp.objects.get(user_id=user_id)
         balance_obj=balance.objects.get(user_id=user_obj)  
