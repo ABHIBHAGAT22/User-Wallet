@@ -21,7 +21,11 @@
     </head>
 
    <body>
-
+    {% if messages %}
+    {% for message in messages %}
+       <script>alert("{{ message }}");</script> 
+    {% endfor %}
+    {% endif %}   
     <div class="nav-bar">
         <img class="logo1" src="{% static 'images/wallet.png' %}" alt="User Wallet Logo">
         <p>Welcome to the User Wallet</p>
