@@ -78,13 +78,13 @@ WSGI_APPLICATION = 'userwallet_project.wsgi.application'
 
 DATABASES = {
     'default': {
-         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'URL':'postgresql://postgres:cB2ced13126D2BEE1ca42*24432a6Bcb@roundhouse.proxy.rlwy.net:51514/railway',
-        'PASSWORD': 'cB2ced13126D2BEE1ca42*24432a6Bcb',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '51514'
+        'ENGINE': os.environ.get('ENGINE'),
+        'URL': os.environ.get('URL'),
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
+        'PORT': os.environ.get('PORT')
     }
 }
 
