@@ -8,7 +8,8 @@ from django.core.mail import EmailMessage
 from django.db.models import Q
 import math
 import random
-from datetime import datetime, timedelta
+from datetime import datetime
+from django.views.decorators.cache import cache_control
 
 # # ------------------------------------WELCOME PAGE ------------------------------------------------------#
 def index(request):
@@ -16,6 +17,7 @@ def index(request):
     return render(request,'index.html')
 
 #------------------------------------DASHBOARD PAGE -----------------------------------------------------#
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def dash(request):
         request.session.modified = True
         if request.session.get('loggedin',False)==False:
