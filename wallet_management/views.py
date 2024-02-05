@@ -274,6 +274,6 @@ def logout(request):
             return redirect('/login')
     del request.session['loggedin']
     messages.success(request,'Successfully Logout')
-    return redirect('/')
+    return render(request,'logout.html')
 
 #-------------------------------------------------END-----------------------------------------------------------------------------#
