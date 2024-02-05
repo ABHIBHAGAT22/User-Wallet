@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="path/to/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        .container {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    {% if messages %}
+    {% for message in messages %}
+       <script>alert("{{ message }}");</script> 
+    {% endfor %}
+    {% endif %}
+    <div class="container">
+        <h2>You are Logged Out</h2>
+        <p>Thank you for using our application.</p>
+    </div>
+</body>
+</html>
