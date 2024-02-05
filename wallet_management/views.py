@@ -17,6 +17,7 @@ def index(request):
 
 #------------------------------------DASHBOARD PAGE -----------------------------------------------------#
 def dash(request):
+        request.session.modified = True
         if request.session.get('loggedin',False)==False:
             messages.success(request,"You need to sign in first!")
             return redirect('/login')
@@ -29,12 +30,12 @@ def dash(request):
 
 #--------------------------------SIGN-UP PAGE------------------------------------------------------------#
 def signup(request):
-    print(request.method)
+    # print(request.method)
     if request.method == "POST":
         username=request.POST.get('username')
         emailId=request.POST.get('emailId')
         
-        print(username,emailId)
+         # print(username,emailId)
 
         check_user=userapp.objects.filter(emailId=emailId)
         if check_user:
@@ -66,16 +67,16 @@ def signup(request):
     return render(request,'register.html')
 
 def is_otp_expired(timestamp, timeout_minutes=5):
-    print(type(timestamp))  # <class 'datetime.datetime'>
+    # print(type(timestamp))  # <class 'datetime.datetime'>
     
     # Convert timestamp to float
     timestamp_float = timestamp.timestamp()
 
     current_time = datetime.now().timestamp()
-    print(current_time)  
+    # print(current_time)  
 
     elapsed_time = current_time - timestamp_float
-    print(elapsed_time)
+    # print(elapsed_time)
     return elapsed_time > (timeout_minutes * 60)
 #------------------------- OTP VERIFICATION AFTER SIGN-UP PAGE--------------------------------------------------#   
 def otpverify1(request):
@@ -256,14 +257,14 @@ def history(request):
         emailId = request.session['emailId']
         user_id = request.session['user_id']
         user_obj=userapp.objects.get(user_id=user_id)
-        print(user_obj)
+        # print(user_obj)
         balance_obj=balance.objects.get(user_id=user_obj)
         t=transcations.objects.filter(Q(sender_emailId=emailId)).all()
         context = {'name' : user_obj.username,'balance':balance_obj.balance,'t':t,'user_id':user_id}
-        print('context:',context)
-        print("t:",t)
+        # print('context:',context)
+        # print("t:",t)
         for i in t:
-             print(i.Amount)
+             # print(i.Amount)
         return render(request,'history.html',context=context)
     
 
