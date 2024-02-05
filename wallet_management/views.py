@@ -192,7 +192,7 @@ def addmoney(request):
                 balance_obj.save()
                 transcations.objects.create(user_id=user_obj,sender_emailId=emailId,receiver_emailId=emailId,transcation_status="1",Amount=Amount)
                 messages.success(request,'Successfully added money to your account')
-                return redirect('/addmoney')
+                return redirect('/dash')
             messages.success(request,"Entered Money is Invalid, Try again!")
             return redirect('/addmoney')
         return render(request,'addmoney.html',context=context)
