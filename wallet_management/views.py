@@ -263,7 +263,7 @@ def history(request):
         context = {'name' : user_obj.username,'balance':balance_obj.balance,'t':t,'user_id':user_id}
         # print('context:',context)
         # print("t:",t)
-        for i in t:
+        # for i in t:
              # print(i.Amount)
         return render(request,'history.html',context=context)
     
